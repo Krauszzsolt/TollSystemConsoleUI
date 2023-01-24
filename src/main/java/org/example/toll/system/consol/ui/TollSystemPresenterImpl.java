@@ -20,6 +20,5 @@ public class TollSystemPresenterImpl implements TollSystemPresenter {
         vignettesAndVehicleValidator.validateVignettesAndVehicle(VignettesAndVehicle);
         VignettesAndVehicleViewModel vignettesAndVehicleViewModel = loadVignettesParser.loadVignettesParser(VignettesAndVehicle);
         tollSystemView.DisplayVignettesAndVehicleViewModel(vignettesAndVehicleViewModel);
-
     }
 }

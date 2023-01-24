@@ -19,6 +19,7 @@ public class TollSystemView {
     public void DisplayVignettesAndVehicleViewModel(VignettesAndVehicleViewModel v){
         for(VignetteViewModel vigenette : v.vignettes) {
             String output = "";
+            //Interactor
             if (vigenette.isValid){
                 output += "X ";
             }
@@ -57,7 +58,7 @@ public class TollSystemView {
         String action = scanner.next();
         switch(action) {
             case "l":
-                get(scanner);
+                getRegistrationNumber(scanner);
                 break;
             default:
                 stop(action);
@@ -65,7 +66,7 @@ public class TollSystemView {
     }
 
 
-    private void get(Scanner scanner){
+    private void getRegistrationNumber(Scanner scanner){
         System.out.print("Add meg a jármű rendszámát:\n");
         String RegistrationNumber = scanner.next();
         tollSystemController.getVignettesAndVehicleViewModel(RegistrationNumber);

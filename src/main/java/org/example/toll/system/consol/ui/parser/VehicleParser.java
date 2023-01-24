@@ -4,13 +4,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class VehicleParser {
-    public String RegistrationNumberToJson(String r) {
+    public JSONObject RegistrationNumberToJson(String r) {
         JSONObject registrationNumber = new JSONObject();
         try {
-            registrationNumber.put("registrationNumber", r);
+            registrationNumber.put("regNumber", r);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        return registrationNumber.toString();
+        return registrationNumber;
     }
 }
