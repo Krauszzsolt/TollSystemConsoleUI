@@ -9,11 +9,17 @@ public class TollSystemPresenterImpl implements TollSystemPresenter {
 
     private LoadVignettesParser loadVignettesParser = new LoadVignettesParser();
     private VignettesAndVehicleValidator vignettesAndVehicleValidator = new VignettesAndVehicleValidator();
-    private TollSystemView tollSystemView = new TollSystemView();
+    private TollSystemView tollSystemView;
+
+    public void setTollSystemView(TollSystemView tollSystemView) {
+        this.tollSystemView = tollSystemView;
+    }
+
     @Override
     public void displayVignette(String VignettesAndVehicle) {
         vignettesAndVehicleValidator.validateVignettesAndVehicle(VignettesAndVehicle);
         VignettesAndVehicleViewModel vignettesAndVehicleViewModel = loadVignettesParser.loadVignettesParser(VignettesAndVehicle);
+        tollSystemView.DisplayVignettesAndVehicleViewModel(vignettesAndVehicleViewModel);
 
     }
 }

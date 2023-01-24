@@ -10,33 +10,32 @@ public class TollSystemView {
     private boolean running = true;
 
 
-    public void setTollSystemController(TollSystemController tollSystemController) {
+    private TollSystemController tollSystemController;
+
+    public TollSystemView(TollSystemController tollSystemController) {
         this.tollSystemController = tollSystemController;
     }
 
-    private TollSystemController tollSystemController;
-
-    public void DisplayVehicle(VignettesAndVehicleViewModel v){
-        for(VignetteViewModel vigenette : v.vignettes){
-            System.out.println(vigenette.validFrom);
-            System.out.println(vigenette.validTo);
-            System.out.println(vigenette.vehicleCategory);
-            System.out.println(vigenette.dateOfPurchase);
+    public void DisplayVignettesAndVehicleViewModel(VignettesAndVehicleViewModel v){
+        for(VignetteViewModel vigenette : v.vignettes) {
+            String output = "";
+            if (vigenette.isValid){
+                output += "X ";
+            }
+            output += vigenette.validFrom + " " + vigenette.validTo + " " + vigenette.vehicleCategory + " " + vigenette.dateOfPurchase + " ";
+            System.out.println(output);
         }
-
-
-
-
+        System.out.println("Jármű adatai: ");
         System.out.println("Rendszám: ");
-        System.out.println(v.vehicle.registrationNumber + "\n");
+        System.out.println(v.vehicle.registrationNumber);
         System.out.println("Gyártmány: ");
         System.out.println(v.vehicle.make);
         System.out.println("Típus: ");
-        System.out.println(v.vehicle.model + "\n");
+        System.out.println(v.vehicle.model);
         System.out.println("Űlőhelyek száma vezetővel: ");
-        System.out.println(v.vehicle.numberOfSeats + "\n");
+        System.out.println(v.vehicle.numberOfSeats );
         System.out.println("Jármű kategória: ");
-        System.out.println(v.vehicle.vehicleType + "\n");
+        System.out.println(v.vehicle.vehicleType);
     }
 
     public void simpleDisplay(String output) {

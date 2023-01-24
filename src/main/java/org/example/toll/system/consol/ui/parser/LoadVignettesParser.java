@@ -37,10 +37,11 @@ public class LoadVignettesParser {
 
                 JSONObject vignetteJSON =  vignettesJSON.getJSONObject(i);
                 String vehicleCategory = vignetteJSON.getString("vehicleCategory");
-                Date validFrom= new Date(vignetteJSON.getString("validFrom"));
-                Date validTo= new Date(vignetteJSON.getString("validTo"));
-                Date dateOfPurchase= new Date(vignetteJSON.getString("dateOfPurchase"));
-                vignettes.add(new VignetteViewModel(vehicleCategory,validFrom,validTo,dateOfPurchase));
+                String validFrom= vignetteJSON.getString("validFrom");
+                String validTo= vignetteJSON.getString("validTo");
+                String dateOfPurchase= vignetteJSON.getString("dateOfPurchase");
+                Boolean isValid= vignetteJSON.getBoolean("isValid");
+                vignettes.add(new VignetteViewModel(vehicleCategory,validFrom,validTo,dateOfPurchase,isValid));
             }
 
         } catch (JSONException e) {
